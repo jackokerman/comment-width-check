@@ -1,6 +1,6 @@
 {
 	"name": "@jackokerman/comment-width-check",
-	"version": "0.1.0",
+	"version": "1.0.0",
 	"description": "Check JS and TS full-line comments against formatter width.",
 	"type": "module",
 	"engines": {
