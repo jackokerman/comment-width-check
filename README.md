@@ -70,14 +70,3 @@ Run a quick benchmark against one or more repos:
 ```sh
 bun run bench -- /path/to/repo
 ```
-
-Baseline result on `devvy`, measured during initial development:
-
-```json
-{
-	"elapsedMs": 77,
-	"filesChecked": 111,
-	"linesChecked": 1862,
-	"violations": 93
-}
-```
