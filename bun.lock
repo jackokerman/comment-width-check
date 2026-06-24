@@ -9,7 +9,7 @@
         "tinyglobby": "^0.2.15",
       },
       "devDependencies": {
-        "@jackokerman/oxlint-config": "^1.6.0",
+        "@jackokerman/oxlint-config": "^1.7.0",
         "@semantic-release/changelog": "^6.0.3",
         "@semantic-release/git": "^10.0.1",
         "@semantic-release/github": "^12.0.2",
@@ -69,7 +69,7 @@
 
     "@humanwhocodes/retry": ["@humanwhocodes/retry@0.4.3", "", {}, "sha512-bV0Tgo9K4hfPCek+aMAn81RppFKv2ySDQeMoSZuvTASywNTnVJCArCZE2FWqpvIatKu7VMRLWlR1EazvVhDyhQ=="],
 
-    "@jackokerman/oxlint-config": ["@jackokerman/oxlint-config@1.6.0", "", { "dependencies": { "eslint-plugin-jsdoc": "61.4.0", "eslint-plugin-simple-import-sort": "^13.0.0" }, "peerDependencies": { "oxlint": ">=1.52.0" } }, "sha512-KKpuFkOzVzhv2hVaNYax8xcbT8gWqGFZLnFTawq1ZIH9lRF4IxEyYF3P6/6HHKwLAFzagvofHf13qTHc8I5IEw=="],
+    "@jackokerman/oxlint-config": ["@jackokerman/oxlint-config@1.7.0", "", { "dependencies": { "eslint-plugin-jsdoc": "61.4.0", "eslint-plugin-simple-import-sort": "^13.0.0" }, "peerDependencies": { "@jackokerman/comment-width-check": ">=1.1.0", "oxfmt": ">=0.56.0", "oxlint": ">=1.52.0" }, "optionalPeers": ["@jackokerman/comment-width-check", "oxfmt"], "bin": { "jack-oxfmt-config": "dist/oxfmt-config-cli.js" } }, "sha512-Z777xzpW6BdKnAskB/8rGh44goT6H3Gm6mk1xkYDz5JNPXph4JckyxsVAS4dmL9cChb+ZcC8xTIMqjOTVT4/4A=="],
 
     "@octokit/auth-token": ["@octokit/auth-token@6.0.0", "", {}, "sha512-P4YJBPdPSpWTQ1NU4XYdvHvXJJDxM6YwpS0FZHRgP7YFkdVxsWcpWGy/NVqlAA7PcPCnMacXlRm1y2PFZRWL/w=="],
 
