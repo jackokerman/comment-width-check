@@ -1,3 +1,15 @@
+# [1.1.0](https://github.com/jackokerman/comment-width-check/compare/v1.0.1...v1.1.0) (2026-06-24)
+
+
+### Bug Fixes
+
+* use npm access status syntax ([ae792d8](https://github.com/jackokerman/comment-width-check/commit/ae792d825930227c90f8a9216fd68e0353d8561d))
+
+
+### Features
+
+* format safe line comments ([8e2b24a](https://github.com/jackokerman/comment-width-check/commit/8e2b24a719a776757671081a46946261cb76a18a))
+
 ## [1.0.1](https://github.com/jackokerman/comment-width-check/compare/v1.0.0...v1.0.1) (2026-06-24)
 
 
