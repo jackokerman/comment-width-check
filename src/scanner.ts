@@ -73,6 +73,7 @@ export function scanText(options: ScanTextOptions): ScanTextResult {
 		}
 
 		violations.push({
+			kind: 'width',
 			file: options.file,
 			line: index + 1,
 			columnWidth,

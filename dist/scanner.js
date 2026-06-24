@@ -25,6 +25,7 @@ export function scanText(options) {
             continue;
         }
         violations.push({
+            kind: 'width',
             file: options.file,
             line: index + 1,
             columnWidth,

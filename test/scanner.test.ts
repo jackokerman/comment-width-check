@@ -24,6 +24,7 @@ describe('scan_text', () => {
 
 		expect(result.violations).toEqual([
 			{
+				kind: 'width',
 				file: 'src/demo.ts',
 				line: 1,
 				columnWidth: 58,

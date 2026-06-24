@@ -5,15 +5,24 @@ import type {ScanResult} from './types.js';
  */
 export function formatTextResult(result: ScanResult): string {
 	if (result.violations.length === 0) {
-		return `Checked ${result.filesChecked} files and ${result.linesChecked} comment lines. No comment width violations found.`;
+		const changed =
+			result.filesChanged > 0 ? ` Rewrote ${result.filesChanged} files.` : '';
+
+		return `Checked ${result.filesChecked} files and ${result.linesChecked} comment lines.${changed} No comment width violations found.`;
 	}
 
+	const changed =
+		result.filesChanged > 0 ? ` Rewrote ${result.filesChanged} files.` : '';
 	const lines = result.violations.map((violation) => {
+		if (violation.kind === 'format') {
+			return `${violation.file}:${violation.line}: comment would be rewritten by --write\n  ${violation.text}`;
+		}
+
 		return `${violation.file}:${violation.line}: comment is ${violation.columnWidth} columns, max is ${violation.maxWidth}\n  ${violation.text}`;
 	});
 
 	return [
-		`Found ${result.violations.length} comment width violation${result.violations.length === 1 ? '' : 's'}.`,
+		`Found ${result.violations.length} comment violation${result.violations.length === 1 ? '' : 's'}.${changed}`,
 		...lines,
 	].join('\n');
 }

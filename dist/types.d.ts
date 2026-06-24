@@ -27,6 +27,10 @@ export type CheckerOptions = {
      */
     format: OutputFormat;
     /**
+     * Whether to rewrite safe over-width line comments before checking.
+     */
+    write: boolean;
+    /**
      * Directory used for path expansion and formatter config discovery.
      */
     cwd: string;
@@ -56,6 +60,10 @@ export type ResolvedOptions = {
      */
     format: OutputFormat;
     /**
+     * Whether to rewrite safe over-width line comments before checking.
+     */
+    write: boolean;
+    /**
      * Directory used for path expansion and formatter config discovery.
      */
     cwd: string;
@@ -64,6 +72,10 @@ export type ResolvedOptions = {
  * It describes one over-width comment line.
  */
 export type Violation = {
+    /**
+     * Whether the comment exceeds width or needs formatter rewriting.
+     */
+    kind: 'format' | 'width';
     /**
      * Repo-relative file path.
      */
@@ -93,6 +105,10 @@ export type ScanResult = {
      * Number of source files scanned.
      */
     filesChecked: number;
+    /**
+     * Number of source files rewritten.
+     */
+    filesChanged: number;
     /**
      * Number of full-line comments checked.
      */

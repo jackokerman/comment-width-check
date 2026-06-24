@@ -10,6 +10,7 @@ export function parseArgs(argv: string[], cwd = process.cwd()): CheckerOptions {
 	let width: number | undefined;
 	let tabWidth: number | undefined;
 	let format = parseOutputFormat(undefined);
+	let write = false;
 
 	for (let index = 0; index < argv.length; index++) {
 		const arg = argv[index];
@@ -44,6 +45,11 @@ export function parseArgs(argv: string[], cwd = process.cwd()): CheckerOptions {
 			continue;
 		}
 
+		if (arg === '--write') {
+			write = true;
+			continue;
+		}
+
 		if (arg.startsWith('-')) {
 			throw new Error(`Unknown option "${arg}".`);
 		}
@@ -51,7 +57,7 @@ export function parseArgs(argv: string[], cwd = process.cwd()): CheckerOptions {
 		paths.push(arg);
 	}
 
-	return {paths, ignore, width, tabWidth, format, cwd};
+	return {paths, ignore, width, tabWidth, format, write, cwd};
 }
 
 /**

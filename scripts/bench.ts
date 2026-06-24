@@ -16,6 +16,7 @@ for (const path of paths) {
 		paths: ['.'],
 		ignore: [],
 		format: 'json',
+		write: false,
 		cwd,
 	});
 	const start = performance.now();

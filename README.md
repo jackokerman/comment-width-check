@@ -1,10 +1,14 @@
 # @jackokerman/comment-width-check
 
-Checks full-line JavaScript and TypeScript comments against the formatter's
-configured print width.
+Checks and formats full-line JavaScript and TypeScript comments against the
+formatter's configured print width.
 
-It is intentionally a checker, not a formatter. It reports long comment-only
-lines while ignoring string literals, normal code, and trailing inline comments.
+By default, it reports long comment-only lines while ignoring string literals,
+normal code, and trailing inline comments. With `--write`, it rewrites safe
+full-line prose comments before checking.
+
+Check mode also reports safe comments that would be rewritten by `--write`, so
+CI can enforce comment formatting without mutating files.
 
 ## Install
 
@@ -18,6 +22,7 @@ The published CLI runs on Node.js 20 or newer.
 
 ```sh
 comment-width-check .
+comment-width-check . --write
 comment-width-check src --width 80 --tab-width 2
 comment-width-check . --ignore 'completions/**' --format json
 ```
@@ -52,10 +57,21 @@ The checker scans JS and TS source files:
 It checks full-line comments whose trimmed text starts with `//`, `/*`, `/**`,
 `*`, or `*/`.
 
+With `--write`, it formats only conservative cases:
+
+- consecutive full-line `//` prose comment paragraphs
+- plain full-line `/* ... */` or `/* ... */` prose blocks, converted to `//`
+
+It leaves JSDoc comments to `oxfmt`'s `jsdoc` formatter.
+
 It ignores:
 
 - code lines with trailing comments
 - comment lines containing URLs
+- directive-like comments such as `// oxlint-disable`, `// @ts-expect-error`, or
+  formatter/linter directives
+- structured comment lines such as bullets, numbered lists, code fences, quote
+  markers, or tag-style comments
 - generated files with common generated markers near the top of the file
 
 ## Development

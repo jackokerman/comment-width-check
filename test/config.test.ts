@@ -20,6 +20,7 @@ describe('parse_args', () => {
 					'generated/**',
 					'--format',
 					'json',
+					'--write',
 				],
 				'/repo',
 			),
@@ -29,6 +30,7 @@ describe('parse_args', () => {
 			width: 100,
 			tabWidth: 4,
 			format: 'json',
+			write: true,
 			cwd: '/repo',
 		});
 	});
@@ -69,6 +71,7 @@ describe('formatter_config', () => {
 					width: 100,
 					tabWidth: undefined,
 					format: 'text',
+					write: false,
 					cwd,
 				}),
 			).toEqual({
@@ -77,6 +80,7 @@ describe('formatter_config', () => {
 				width: 100,
 				tabWidth: 4,
 				format: 'text',
+				write: false,
 				cwd,
 			});
 		} finally {

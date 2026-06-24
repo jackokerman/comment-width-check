@@ -8,6 +8,7 @@ export function parseArgs(argv, cwd = process.cwd()) {
     let width;
     let tabWidth;
     let format = parseOutputFormat(undefined);
+    let write = false;
     for (let index = 0; index < argv.length; index++) {
         const arg = argv[index];
         if (arg === undefined) {
@@ -32,12 +33,16 @@ export function parseArgs(argv, cwd = process.cwd()) {
             format = parseOutputFormat(readOptionValue(argv, ++index, '--format'));
             continue;
         }
+        if (arg === '--write') {
+            write = true;
+            continue;
+        }
         if (arg.startsWith('-')) {
             throw new Error(`Unknown option "${arg}".`);
         }
         paths.push(arg);
     }
-    return { paths, ignore, width, tabWidth, format, cwd };
+    return { paths, ignore, width, tabWidth, format, write, cwd };
 }
 /**
  * It signals that the user requested CLI help output.

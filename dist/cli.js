@@ -10,6 +10,7 @@ Options:
   --tab-width <n>   Tab expansion width.
   --ignore <glob>   Ignore glob. Can be repeated.
   --format <value>  Output format: text or json.
+  --write           Rewrite safe prose comments before checking.
   -h, --help        Show help.
 `;
 async function main() {
