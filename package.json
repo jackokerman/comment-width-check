@@ -7,7 +7,7 @@
 		"node": ">=20"
 	},
 	"bin": {
-		"comment-width-check": "./dist/cli.js"
+		"comment-width-check": "dist/cli.js"
 	},
 	"files": [
 		"dist"
