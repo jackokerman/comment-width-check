@@ -11,7 +11,7 @@ jobs:
         with:
           node-version: 24
           registry-url: https://registry.npmjs.org/
-      - run: npm access public @jackokerman/comment-width-check
+      - run: npm access set status=public @jackokerman/comment-width-check
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
       - run: npm view @jackokerman/comment-width-check version dist-tags bin --json
